@@ -2,6 +2,10 @@
 FROM ubuntu:xenial
 MAINTAINER Teo Mrnjavac <teo@kde.org>
 
+# Add neon repo for non-ancient Qt
+RUN cat "deb http://archive.neon.kde.org/user/ xenial main" > /etc/apt/sources.list.d/neon.list
+RUN wget -q -O - http://archive.neon.kde.org/public.key | apt-key add -
+
 # Make sure the package repository is up to date.
 RUN apt-get update
 RUN apt-get -y upgrade
