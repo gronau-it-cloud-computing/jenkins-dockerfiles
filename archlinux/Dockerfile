@@ -11,7 +11,7 @@ SigLevel = Never\n\
 Server = http://repo.archlinux.fr/$arch\n' >> /etc/pacman.conf
 
 # Make sure the package repositories are up to date.
-RUN pacman -Syu --noconfirm
+RUN pacman -Syu --noconfirm --force
 RUN pacman-db-upgrade
 
 # Install OpenSSH, JDK 8, sudo and a bunch of other stuff for Calamares.
