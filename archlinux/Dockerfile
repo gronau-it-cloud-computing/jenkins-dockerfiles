@@ -16,7 +16,10 @@ RUN pacman -Syyu --noconfirm
 RUN pacman-db-upgrade
 
 # Install OpenSSH, JDK 8, sudo and a bunch of other stuff for Calamares.
-RUN pacman -S --noconfirm base-devel jdk8-openjdk cmake extra-cmake-modules \
+RUN pacman -S --noconfirm autoconf automake binutils bison fakeroot file \
+                          findutils flex gawk gettext grep groff gzip libtool \
+                          m4 make patch pkg-config sed sudo texinfo util-linux \
+                          which jdk8-openjdk cmake extra-cmake-modules \
                           qt5-base qt5-svg qt5-declarative qt5-quickcontrols \
                           qt5-graphicaleffects ki18n solid kcoreaddons python \
                           boost os-prober qt5-tools parted kconfig yaml-cpp \
