@@ -15,6 +15,8 @@ Server = http://repo.archlinux.fr/$arch\n' >> /etc/pacman.conf
 RUN pacman -Syyu --noconfirm
 RUN pacman-db-upgrade
 
+RUN pacman -S --noconfirm ca-certificates{,-mozilla}
+
 # Install OpenSSH, JDK 8, sudo and a bunch of other stuff for Calamares.
 RUN pacman -S --noconfirm autoconf automake binutils bison fakeroot file \
                           findutils flex gawk gettext grep groff gzip libtool \
@@ -33,7 +35,7 @@ RUN echo "jenkins:jenkins" | chpasswd
 # Allow the jenkins user to update the system.
 RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/pacman, /usr/bin/yaourt" > /etc/sudoers.d/jenkins
 
-RUN su jenkins -c "yaourt -S --noconfirm transifex-client-beta"
+RUN su jenkins -c "yaourt -S --noconfirm transifex-client"
 RUN ssh-keygen -A
 RUN sed -i -e "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
 
