@@ -18,9 +18,8 @@ RUN pacman-db-upgrade
 RUN pacman -S --noconfirm ca-certificates{,-mozilla}
 
 # Install OpenSSH, JDK 8, sudo and a bunch of other stuff for Calamares.
-RUN pacman -S --noconfirm autoconf automake binutils bison fakeroot file \
+RUN pacman -S --noconfirm automake binutils bison fakeroot file gcc \
                           findutils flex gawk gettext grep groff gzip libtool \
-                          gcc-multilib \
                           m4 make patch pkg-config sed sudo texinfo util-linux \
                           which jdk8-openjdk cmake extra-cmake-modules \
                           qt5-base qt5-svg qt5-declarative qt5-quickcontrols \
