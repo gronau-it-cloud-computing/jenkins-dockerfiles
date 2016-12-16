@@ -26,7 +26,7 @@ RUN pacman -S --noconfirm automake binutils bison fakeroot file gcc \
                           qt5-graphicaleffects ki18n solid kcoreaddons python \
                           boost os-prober qt5-tools parted kconfig yaml-cpp \
                           libatasmart git polkit-qt5 openssh qt5-webkit kparts \
-                          kservice konsole yaourt
+                          kservice konsole yaourt pythonqt
 
 # Add user jenkins to the image.
 RUN useradd -m -s /bin/bash jenkins
